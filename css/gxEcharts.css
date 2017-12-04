@@ -1,0 +1,17 @@
+#echartsBody{
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/echartBackgroundImage.jpg");
+  background-repeat: no-repeat;
+}
+.echartsSpecial{
+  height:320px;
+  margin: 20px 40px;
+  background-image: url("../images/bgPanel.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#echarts_zuzhbz{
+  height:320px;
+  text-align: center;
+}

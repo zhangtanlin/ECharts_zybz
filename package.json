@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/zhangtanlin/ECharts_zybz#readme",
   "devDependencies": {
-    "echarts": "^3.8.5"
+    "bower": "^1.8.2"
   }
 }
