@@ -1,17 +1,44 @@
-#echartsBody{
+.echartsBody{
   margin: 0;
-  padding: 0;
-  background-image: url("../images/echartBackgroundImage.jpg");
-  background-repeat: no-repeat;
 }
-.echartsSpecial{
-  height:320px;
-  margin: 20px 40px;
-  background-image: url("../images/bgPanel.png");
-  background-repeat: no-repeat;
-  overflow: hidden;
+.echartsBox{
+  margin-left: 10px;
+  position: relative;
+  left: -5px;
+  background:-moz-linear-gradient(left,#282828,#585858);/*Mozilla*/
+  background:-webkit-gradient(linear,0 50%,100% 50%,from(#282828),to(#585858));/*Old gradient for webkit*/
+  background:-webkit-linear-gradient(left,#282828,#585858);/*new gradient for Webkit*/
+  background:-o-linear-gradient(left,#282828,#585858);/*Opera11*/
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1471da, endColorstr=#585858);/*IE<9>*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#282828, endColorstr=#585858)";/*IE8+*/
 }
-#echarts_zuzhbz{
+.echartsList{
   height:320px;
-  text-align: center;
+  margin: 10px 0;
+}
+.echartsFluid{
+  width: 1900px;
+  /*overflow: hidden;*/
+  margin:0 auto;
+}
+.echartsRow{
+  min-height: 200px;
+}
+.echartsRow:after{
+  content: "";
+  clear: both;
+  zoom: 1;
+
+}
+.echartsCol3,.echartsCol6,.echartsCol12{
+  float: left;
+}
+.echartsCol3{
+  width: 25%;
+}
+.echartsCol6{
+  width: 50%;
+}
+.echartsCol12{
+  width: 100%;
 }
