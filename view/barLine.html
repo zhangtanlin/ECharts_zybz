@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/gxEcharts.css">
+</head>
+<body class="echartsBody">
+
+<div class="echartsFluid">
+
+  <div class="echartsRow">
+    <div class="echartsCol12">
+      <div class="echartsBox">
+        <div id="echarts_zuzhbz" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="echartsRow">
+    <div class="echartsCol6">
+      <div class="echartsBox">
+        <div id="echarts_hcbj" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol6">
+      <div class="echartsBox">
+        <div id="echarts_gjsb" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="echartsRow">
+    <div class="echartsCol6">
+      <div class="echartsBox">
+        <div id="echarts_jcss" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol6">
+      <div class="echartsBox">
+        <div id="echarts_bzry" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/gxEcharts.js"></script>
+<script>
+  $.getJSON("../data/barLine.json",function(data){
+    //console.log(data);
+
+    //资源综合保障能力图
+    $("#echarts_zuzhbz").echartLineBar(data[0]);
+
+    //航材设备汇总图
+    $("#echarts_hcbj").echartLineBar(data[1]);
+
+    //工具设备汇总图
+    $("#echarts_gjsb").echartLineBar(data[2]);
+
+    //基础设施汇总图
+    $("#echarts_jcss").echartLineBar(data[3]);
+
+    //保障人员汇总图
+    $("#echarts_bzry").echartLineBar(data[4]);
+
+  })
+</script>
+</body>
+</html>

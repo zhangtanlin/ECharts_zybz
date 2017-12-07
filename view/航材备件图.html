@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #echarts{width: 100%;height:600px;background: yellowgreen;}
+  </style>
+</head>
+<body>
+<div id="echarts"></div>
+
+<script src="../js/echarts.min.js"></script>
+<script>
+  var chart = echarts.init(document.getElementById('echarts'), null, {});
+  chart.setOption({
+    tooltip : {
+      trigger: 'axis'
+    },
+    legend: {
+      bottom: '10px',
+      data:['总件数(件)','总金额(万元)']//图标
+    },
+    xAxis : [
+      {
+        type : 'category',
+        data : ['军械','航电','特设','机械']
+      }
+    ],
+    yAxis : [
+      {
+        type : 'value',
+        axisLabel : {
+          formatter: '{value}'
+        }
+      },
+      {
+        type : 'value',
+        position: 'right',
+        axisLabel : {
+          formatter: '{value}'
+        }
+      }
+    ],
+    series : [
+      {
+        name:'总件数(件)',
+        type:'bar',
+        data:[2000, 1300, 200, 300],
+        itemStyle:{
+          normal:{
+            color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: '#CD52EA'
+            }, {
+              offset: 1,
+              color: '#9214CD'
+            }])
+          }
+        }
+      },
+      {
+        name:'总金额(万元)',
+        type:'line',
+        yAxisIndex: 1,
+        data:[150000, 130000, 300000, 180000],
+        lineStyle:{
+          normal:{
+            color: '#F9A92C',//线条颜色
+            width: 5//线条宽度
+          },
+        },
+        itemStyle:{
+          normal:{
+            color: '#F9A92C'//折点边线颜色
+          }
+        },
+        symbol:'circle',//折点样式
+        symbolSize:16//折点大小
+      }
+    ]
+  });
+</script>
+</body>
+</html>

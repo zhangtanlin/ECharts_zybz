@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/gxEcharts.css">
+  <style>
+    #main{
+      width: 100%;height: 500px;background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="echartsFluid">
+  <div class="echartsRow">
+    <div class="echartsCol12">
+      <div class="echartsBox">
+        <div id="echarts_fjsmyj" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+  var myChart = echarts.init(document.getElementById('echarts_fjsmyj'));
+  myChart.setOption({
+    title:{
+      text:'堆叠区域图',
+      textStyle:{
+        color:'#fff',
+        lineHeight:40,
+        rich:{
+          a:{
+            lineHeight:40
+          }
+        }
+      },
+      left:'center'
+    },
+    tooltip : {
+      trigger:'axis',
+      axisPointer:{
+        type:'cross'
+      },
+    },
+    legend:{
+      show:false,
+      data:['飞机']
+    },
+    xAxis:{
+      type:'category',
+      boundaryGap:false,
+      data:['6号飞机','7号飞机','5号飞机','4号飞机','9号飞机','10号飞机','20号飞机','11号飞机','19号飞机','8号飞机','18号飞机','17号飞机','16号飞机','15号飞机','14号飞机','13号飞机','12号飞机','3号飞机','1号飞机','2号飞机'],
+      axisLine:{
+        show:true,
+        lineStyle:{
+          color:'#8C8C8C'//X轴颜色
+        }
+      },
+      splitLine:{
+        show:true,
+        lineStyle:{
+          color:'#8C8C8C'//纵向分割线颜色
+        }
+      },
+      axisLabel:{
+        rotate:30,//x轴刻度标签旋转
+        color:'#fff'//X轴刻度标签颜色
+      },
+      axisTick:{
+        data:'value'
+      }
+    },
+    yAxis:{
+      type:'value',
+      axisLabel : {
+        formatter: '{value}'
+      },
+      axisLine:{
+        lineStyle:{
+          color:'#8C8C8C'//y轴字颜色
+        }
+      },
+      axisTick:{
+        show:false//y轴【左侧】刻度不显示
+      },
+      splitLine:{
+        show:true,
+        lineStyle:{
+          color:'#8C8C8C'//横向分割线颜色
+        }
+      },
+      axisLabel:{
+        color:'#fff'//y轴刻度标签颜色
+      }
+    },
+    series: [
+      {
+        name:'飞机',
+        type: 'line',
+        areaStyle:{normal:{}},
+        data: [70, 120, 170, 175, 300, 380, 430, 433, 431, 440, 438, 445, 450, 455, 460, 465, 470, 580, 605, 650],
+        itemStyle:{
+          normal:{
+            color:new echarts.graphic.LinearGradient(0, 0, 0, .8, [{
+              offset: 0,
+              color: '#43B0E2'
+            }, {
+              offset: 1,
+              color: '#1080EB'
+            }])
+          }
+        }
+      }
+    ]
+  });
+</script>
+</body>
+</html>

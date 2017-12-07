@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/gxEcharts.css">
+</head>
+<body class="echartsBody">
+<div class="echartsFluid">
+
+  <div class="echartsRow">
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_zbsl" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_fjsmyj" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_fdjsmyj" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="echartsRow">
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_whl" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_fjdxyj" class="echartsList"></div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_fdjdxyj" class="echartsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="echartsRow">
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div class="echartsList" style="background-color: #00b3ee">1</div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_zbgz" class="echartsList" style="background-color: #2b542c">2</div>
+      </div>
+    </div>
+    <div class="echartsCol4">
+      <div class="echartsBox">
+        <div id="echarts_zlsg" class="echartsList" style="background-color: #7a43b6">4</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/gxEcharts.js"></script>
+<script>
+  $.getJSON("../data/lineArea.json",function(data){
+    //飞机寿命预警
+    $("#echarts_fjsmyj").echartLineArea(data[0]);
+    //发动机寿命预警
+    $("#echarts_fdjsmyj").echartLineArea(data[1]);
+  });
+  $.getJSON("../data/bar.json",function(data){
+    //飞机大修预警提示图
+    $("#echarts_fjdxyj").echartBar(data[0]);
+    //发动机大修预警提示图
+    $("#echarts_fdjdxyj").echartBar(data[1]);
+  });
+  $.getJSON("../data/barLinearea.json",function (data) {
+    //装备故障检测图
+    $("#echarts_zbgz").echartLineBarArea(data[0]);
+    //质量事故检测图(次)
+    //$("#echarts_zlsg").echartLineBarArea(data[1]);
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/echarts.min.js"></script>
+  <style>
+    body{
+      background-image: url("../images/echartBackgroundImage.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    #echarts{width: 100%;height:300px;background: yellowgreen;}
+  </style>
+</head>
+<body>
+<div id="echarts"></div>
+
+
+<script>
+  var chart = echarts.init(document.getElementById('echarts'), null, {});
+
+  chart.setOption({
+    tooltip : {
+      trigger: 'axis'
+    },
+    legend: {
+      data:['飞机','发动机','飞机保障率','发动机保障率'],
+      bottom: '10px',
+      textStyle:{
+        color:'#fff'
+      }
+    },
+    xAxis : [
+      {
+        show:true,
+        type : 'category',
+        data : ['航  材','设  备','设  施','人  员'],
+        axisLine:{
+          show:true,
+          lineStyle:{
+            color:'#2eb3ff'//X轴颜色
+          }
+        },
+        axisTick:{
+          show:false//X轴刻度不显示
+        },
+        axisLabel:{
+          color:'#fff'//X轴刻度标签颜色
+        }
+      }
+    ],
+    yAxis : [
+      {
+        type : 'value',
+        axisLabel : {
+          formatter: '{value}'
+        },
+        axisLine:{
+          lineStyle:{
+            color:'#2eb3ff'//y轴【左侧】文字颜色
+          }
+        },
+        axisTick:{
+          show:false//y轴【左侧】刻度不显示
+        },
+        splitLine:{
+          show:true,
+          lineStyle:{
+            color:'#2eb3ff'//横向分割线颜色
+          }
+        }
+      },
+      {
+        type : 'value',
+        position: 'right',
+        axisLabel : {
+          formatter: '{value}%'
+        },
+        axisLine:{
+          lineStyle:{
+            color:'#2eb3ff'//X轴【右侧】文字颜色
+          }
+        },
+        axisTick:{
+          show:false//X轴【右侧】刻度不显示
+        },
+        splitLine:{
+          show:true,
+          lineStyle:{
+            color:'#2eb3ff'//横向分割线颜色
+          }
+        }
+      }
+    ],
+    series : [
+      {
+        name:'飞机',
+        type:'bar',
+        data:[18, 12, 10, 25],
+        itemStyle:{
+          normal:{
+            color:new echarts.graphic.LinearGradient(0, 0, 0, .8, [{
+              offset: 0,
+              color: '#43B0E2'
+            }, {
+              offset: 1,
+              color: '#1080EB'
+            }])
+          }
+        }
+      },
+      {
+        name:'发动机',
+        type:'bar',
+        data:[8, 5, 7, 15],
+        itemStyle:{
+          normal:{
+            color:new echarts.graphic.LinearGradient(0, 0, 0, .8, [{
+              offset: 0,
+              color: '#E67F32'
+            }, {
+              offset: 1,
+              color: '#BA3212'
+            }])
+          }
+        }
+      },
+      {
+        name:'飞机保障率',
+        type:'line',
+        yAxisIndex: 1,
+        data:['80', '60', '50', '125'],
+        lineStyle:{
+          normal:{
+            color: '#4CE8FF',//线条颜色
+            width: 5//线条宽度
+          },
+        },
+        itemStyle:{
+          normal:{
+            color: '#4CE8FF'//折点边线颜色
+          }
+        },
+        symbol:'circle',//折点样式
+        symbolSize:16//折点大小
+      },
+      {
+        name:'发动机保障率',
+        type:'line',
+        yAxisIndex: 1,
+        data:['40', '25', '30', '75'],
+        lineStyle:{
+          normal:{
+            color: '#F9A92C',//线条颜色
+            width: 5//线条宽度
+          },
+        },
+        itemStyle:{
+          normal:{
+            color: '#F9A92C'//折点边线颜色
+          }
+        },
+        symbol:'circle',//折点样式
+        symbolSize:16//折点大小
+      }
+    ]
+  });
+  window.addEventListener("resize",function() {
+    chart.resize();
+  });
+</script>
+</body>
+</html>
