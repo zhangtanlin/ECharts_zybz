@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/gxEcharts.css">
+</head>
+<body>
+<div class="echartsRow">
+  <div class="echartsCol12">
+    <div class="echartsBox">
+      <div class="echartsListSpecial" id="echarts_hxzzt" style="height: 600px"></div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/gxEcharts.js"></script>
+<script>
+  var echartPie = echarts.init(document.getElementById('echarts_hxzzt'));
+  echartPie.setOption({
+    tooltip : {
+      show: true,
+      trigger: 'item'
+    },
+    legend: {
+      data:['完好','待修','在修']
+    },
+    calculable : true,
+    xAxis : [
+      {
+        type : 'category',
+        data : ['飞机','发动机','导弹','战斗部']
+      }
+    ],
+    yAxis : [
+      {
+        type : 'value'
+      }
+    ],
+    series : [
+      {
+        name:'完好',
+        type:'bar',
+        stack: '总量',
+        itemStyle: {
+          normal: {
+            color: {
+              type:'line',
+              x:0,
+              y:0,
+              x2:0,
+              y2:1,
+              colorStops:[
+                {offset:0,color:'#3A7BCA'},
+                {offset:1,color:'#2C5D98'}
+              ]
+            }
+          }
+        },
+        data:[16, 100, 70, 95]
+      },
+      {
+        name:'待修',
+        type:'bar',
+        stack: '总量',
+        itemStyle: {
+          normal: {
+            color: {
+              type:'line',
+              x:0,
+              y:0,
+              x2:0,
+              y2:1,
+              colorStops:[
+                {offset:0,color:'#CD3B37'},
+                {offset:1,color:'#9B2D2A'}
+              ]
+            }
+          }
+        },
+        data:[1,10,20,2]
+      },
+      {
+        name:'在修',
+        type:'bar',
+        stack: '总量',
+        itemStyle: {
+          normal: {
+            color: {
+              type:'line',
+              x:0,
+              y:0,
+              x2:0,
+              y2:1,
+              colorStops:[
+                {offset:0,color:'#9BC447'},
+                {offset:1,color:'#769535'}
+              ]
+            }
+          }
+        },
+        data:[3, 4, 10, 3]
+      }
+    ]
+  });
+
+</script>
+</body>
+</html>

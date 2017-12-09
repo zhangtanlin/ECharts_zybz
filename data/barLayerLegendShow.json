@@ -1,0 +1,33 @@
+[
+  {
+    "name": "飞机部署图(架)",
+    "legend":["战备","在修","完好","故障"],
+    "xAxis":["1号基地","2号基地"],
+    "series":[
+      {
+        "name":"战备",
+        "data":[2, 1],
+        "type":"barLayerLegendShow",
+        "monad":"架"
+      },
+      {
+        "name":"在修",
+        "data":[2, 5],
+        "type":"barLayerLegendShow",
+        "monad":"架"
+      },
+      {
+        "name":"完好",
+        "data":[1, 8],
+        "type":"barLayerLegendShow",
+        "monad":"架"
+      },
+      {
+        "name":"故障",
+        "data":[1, 4],
+        "type":"barLayerLegendShow",
+        "monad":"架"
+      }
+    ]
+  }
+]

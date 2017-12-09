@@ -11,17 +11,57 @@
   <div class="echartsRow">
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_zbsl" class="echartsList"></div>
+        <div class="echartsList">
+          <div class="echarts_zbsl_box">
+            <div class="echarts_zbsl" id="echarts_zbsl"></div>
+            <div class="echarts_zbsl_table" id="echarts_zbsl_table">
+              <table cellpadding="0" cellspacing="0">
+                <tbead>
+                  <tr>
+                    <th></th>
+                    <th>飞机</th>
+                    <th>发动机</th>
+                    <th>导弹</th>
+                    <th>战斗部</th>
+                  </tr>
+                </tbead>
+                <tvody>
+                  <tr>
+                    <td><span class="echart_zx"></span>在修</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="echart_dx"></span>待修</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="echart_wh"></span>完好</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tvody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_fjsmyj" class="echartsList"></div>
+        <div class="echartsList" id="echarts_fjsmyj"></div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_fdjsmyj" class="echartsList"></div>
+        <div class="echartsList" id="echarts_fdjsmyj"></div>
       </div>
     </div>
   </div>
@@ -29,17 +69,17 @@
   <div class="echartsRow">
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_whl" class="echartsList"></div>
+        <div class="echartsList" id="echarts_whl"></div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_fjdxyj" class="echartsList"></div>
+        <div class="echartsList" id="echarts_fjdxyj"></div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_fdjdxyj" class="echartsList"></div>
+        <div class="echartsList" id="echarts_fdjdxyj"></div>
       </div>
     </div>
   </div>
@@ -47,45 +87,108 @@
   <div class="echartsRow">
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div class="echartsList" style="background-color: #00b3ee">1</div>
+        <div class="echartsList" id="echarts_fjbs"></div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_zbgz" class="echartsList" style="background-color: #2b542c">2</div>
+        <div class="echartsList" id="echarts_zbgz"></div>
       </div>
     </div>
     <div class="echartsCol4">
       <div class="echartsBox">
-        <div id="echarts_zlsg" class="echartsList" style="background-color: #7a43b6">4</div>
+        <div class="echartsList" id="echarts_zlsg"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="echartsRow">
+    <div class="echartsCol12">
+      <div class="echartsBox">
+        <div class="echartsListSpecial" id="echarts_hxzzt"></div>
       </div>
     </div>
   </div>
 
 </div>
 
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/gxEcharts.js"></script>
 <script>
-  $.getJSON("../data/lineArea.json",function(data){
-    //飞机寿命预警
-    $("#echarts_fjsmyj").echartLineArea(data[0]);
-    //发动机寿命预警
-    $("#echarts_fdjsmyj").echartLineArea(data[1]);
-  });
-  $.getJSON("../data/bar.json",function(data){
-    //飞机大修预警提示图
-    $("#echarts_fjdxyj").echartBar(data[0]);
-    //发动机大修预警提示图
-    $("#echarts_fdjdxyj").echartBar(data[1]);
-  });
-  $.getJSON("../data/barLinearea.json",function (data) {
-    //装备故障检测图
-    $("#echarts_zbgz").echartLineBarArea(data[0]);
-    //质量事故检测图(次)
-    //$("#echarts_zlsg").echartLineBarArea(data[1]);
+  $(document).ready(function(){
+
+    $.getJSON("../data/barLayer.json",function(data){
+      //装备实力汇总
+      $("#echarts_zbsl").echartBarLayer(data[0]);
+      //把数据添加到table里面
+      console.log(data[0]);
+      var html = ""
+      var xArea = data[0].xAxis, series= data[0].series;
+      html = '<tr><th></th><th>飞机</th><th>发动机</th><th>导弹</th><th>战斗部</th></tr>';
+      for(var i=0;i<series.length;i++){
+        var xAreaState = ["完好","待修","在修"];
+        var xAreaNames = ["echart_wh","echart_dx","echart_zx"];
+        html += '<tr>' +
+                '<td><span class="'+xAreaNames[i]+'"></span>'+xAreaState[i]+'</td>' +
+                '<td xaxis="'+xArea[0]+'" series="'+xAreaState[i]+'">'+series[i].data[0]+'</td>' +
+                '<td xaxis="'+xArea[1]+'" series="'+xAreaState[i]+'">'+series[i].data[1]+'</td>' +
+                '<td xaxis="'+xArea[2]+'" series="'+xAreaState[i]+'">'+series[i].data[2]+'</td>' +
+                '<td xaxis="'+xArea[3]+'" series="'+xAreaState[i]+'">'+series[i].data[3]+'</td>' +
+                '</tr>';
+      }
+      $("#echarts_zbsl_table tbody").html(html);
+    });
+    //点击表格的td事件
+    $("#echarts_zbsl_table").delegate("td:not(0)","click",function(){
+      var xaxis = $(this).attr("xaxis"), series = $(this).attr("series");
+      console.log(xaxis,series);
+    })
+
+
+    $.getJSON("../data/lineArea.json",function(data){
+      //飞机寿命预警
+      $("#echarts_fjsmyj").echartLineArea(data[0]);
+    });
+    $.getJSON("../data/lineArea.json",function(data){
+      //发动机寿命预警
+      $("#echarts_fdjsmyj").echartLineArea(data[1]);
+    });
+
+    //飞机/发动机完好率
+    $.getJSON("../data/pie.json",function(data){
+      $("#echarts_whl").echartPie(data[0]);
+    });
+
+    $.getJSON("../data/bar.json",function(data){
+      //飞机大修预警提示图
+      $("#echarts_fjdxyj").echartBar(data[0]);
+    });
+    $.getJSON("../data/bar.json",function(data){
+      //发动机大修预警提示图
+      $("#echarts_fdjdxyj").echartBar(data[1]);
+    });
+
+    $.getJSON("../data/barLayerLegendShow.json",function(data){
+      //飞机部署图(架)
+      $("#echarts_fjbs").barLayerLegendShow(data[0]);
+    })
+
+    $.getJSON("../data/barLinearea.json",function (data) {
+      //装备故障检测图
+      $("#echarts_zbgz").echartLineBarArea(data[0]);
+    });
+    $.getJSON("../data/barLinearea.json",function (data) {
+      //质量事故检测图(次)
+      $("#echarts_zlsg").echartLineBarArea(data[1]);
+    });
+
+    $.getJSON("../data/baracross.json",function(data){
+      $("#echarts_hxzzt").echartBaracross(data[0]);
+    });
   })
+
+
 
 </script>
 </body>

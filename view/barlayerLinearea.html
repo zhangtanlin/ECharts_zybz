@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../css/gxEcharts.css">
+</head>
+<body class="echartsBody">
+
+  <div class="echartsFluid">
+
+    <div class="echartsRow">
+      <div class="echartsCol4">
+        <div class="echartsBox">
+          <div id="echarts_djgz" class="echartsList"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/echarts.min.js"></script>
+  <script src="../js/gxEcharts.js"></script>
+  <script>
+    $(document).ready(function(data){
+      $.getJSON("../data/barlayerLinearea.json",function(data){
+        //惯导系统单机故障分布图
+        $("#echarts_djgz").barlayerLinearea(data[0]);
+      })
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "惯导系统单机故障分布图(架)",
+    "legend":["飞行小时","A类故障","1类故障","2类故障"],
+    "xAxis":["1号飞机","2号飞机","3号飞机","4号飞机","5号飞机","6号飞机"],
+    "leftMin":0,
+    "leftMax":5,
+    "rightMin":0,
+    "rightMax":350,
+    "leftMonad":"次",
+    "rightMonad":"h",
+    "series":[
+      {
+        "name":"飞行小时",
+        "data":[100,150,300,350,280,200],
+        "type":"linearea",
+        "monad":"h"
+      },
+      {
+        "name":"A类故障",
+        "data":[1,0,0,0,0,0],
+        "type":"barLayerLegendShow",
+        "monad":"次"
+      },
+      {
+        "name":"1类故障",
+        "data":[0,2,1,1,1,1],
+        "type":"barLayerLegendShow",
+        "monad":"次"
+      },
+      {
+        "name":"2类故障",
+        "data":[0,2,3,3,2,2],
+        "type":"barLayerLegendShow",
+        "monad":"次"
+      }
+    ]
+  }
+]

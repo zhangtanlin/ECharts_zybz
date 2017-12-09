@@ -1,0 +1,23 @@
+[
+  {
+    "name": "横向柱状图",
+    "legend":["万时事故率","故障停飞率"],
+    "yAxis":["飞机"],
+    "bottomMax":100,
+    "bottomMin":0,
+    "series":[
+      {
+        "name":"万时事故率",
+        "data":["10"],
+        "type":"baracross",
+        "monad":"%"
+      },
+      {
+        "name":"故障停飞率",
+        "data":["3"],
+        "type":"baracross",
+        "monad":"%"
+      }
+    ]
+  }
+]

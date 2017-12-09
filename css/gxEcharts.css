@@ -14,8 +14,11 @@
 .echartsList{
   height:320px;
 }
+.echartsListSpecial{
+  height:200px;
+}
 .echartsFluid{
-  width: 1400px;
+  width: 1880px;
   margin:5px auto;
 }
 .echartsRow{
@@ -42,3 +45,18 @@
 .echartsCol12{
   width: 100%;
 }
+.echarts_zbsl_box{padding: 0 10px 0 10px;}
+.echarts_zbsl{height: 240px;}
+.echarts_zbsl_table{}
+.echarts_zbsl_table>table{text-align:center;font-size: 12px;color: #BDBDBD;width: 100%;border-top: 1px solid #BDBDBD;border-left: 1px solid #BDBDBD;}
+.echarts_zbsl_table>table th,
+.echarts_zbsl_table>table td{border-bottom: 1px solid #BDBDBD;border-right: 1px solid #BDBDBD;}
+.echarts_zbsl_table>table td{cursor: pointer;}
+.echarts_zbsl_table>table th:first-child,
+.echarts_zbsl_table>table td:first-child{width: 59px;}
+.echarts_zbsl_table>table td:first-child>span.echart_zx{display: inline-block;width: 10px;height: 10px;background: #8DB241;margin-right: 5px;}
+.echarts_zbsl_table>table td:first-child>span.echart_dx{display: inline-block;width: 10px;height: 10px;background: #BF3936;margin-right: 5px;}
+.echarts_zbsl_table>table td:first-child>span.echart_wh{display: inline-block;width: 10px;height: 10px;background: #3772B9;margin-right: 5px;}
+.echarts_zbsl_table>table td:nth-child(2){width: 125px;}
+.echarts_zbsl_table>table td:nth-child(3){width: 150px;}
+.echarts_zbsl_table>table td:nth-child(4){width: 120px;}
