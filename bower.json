@@ -1,0 +1,18 @@
+{
+  "name": "echarts_zybz",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "zhangtanlin90@126.com <ztl900211>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/zhangtanlin/ECharts_zybz",
+  "ignore": [],
+  "dependencies": {
+    "bootstrap": "3"
+  },
+  "devDependencies": {
+    "jquery": "1",
+    "echarts": "^3.8.5"
+  }
+}

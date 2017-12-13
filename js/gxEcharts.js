@@ -1228,8 +1228,8 @@
                   x2:0,
                   y2:1,
                   colorStops:[
-                    {offset:0,color:'#FFD000'},
-                    {offset:1,color:'#DA9C00'}
+                    {offset:0,color:'#69B735'},
+                    {offset:1,color:'#53922A'}
                   ]
                 }
               }
@@ -1546,6 +1546,7 @@
       });
       return barlayerLinearea;
     },
+
 
   });
 })(jQuery);
